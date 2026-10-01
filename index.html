@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGS Online Service & Mock Test</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Simple Header -->
+    <header class="bg-indigo-600 text-white shadow-lg p-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-2xl font-bold">SGS Online Service</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-indigo-200">Home</a>
+                <a href="#notice-board" class="hover:text-indigo-200">Notice Board</a>
+                <a href="privacy.html" class="hover:text-indigo-200">Privacy Policy</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10 space-y-12">
+        
+        <!-- Yahan app-section.html load hoga -->
+        <div id="app-section"></div>
+
+        <!-- Notice Board Section -->
+        <section id="notice-board" class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Latest Notice Board</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Yahan teeno notices alag alag load honge -->
+                <div id="university-updates"></div>
+                <div id="ssc-gd-updates"></div>
+                <div id="ssc-cgl-updates"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Yahan footer.html load hoga -->
+    <div id="footer-section"></div>
+
+    <!-- MAGIC SCRIPT: Jo sabhi files ko link karega -->
+    <script>
+        function loadComponent(elementId, fileName) {
+            fetch(fileName)
+                .then(response => {
+                    if (!response.ok) throw new Error("File missing: " + fileName);
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(err => console.error(err));
+        }
+
+        // Saare alag-alag HTML files ko call kar rahe hain
+        loadComponent('app-section', 'app-section.html');
+        loadComponent('university-updates', 'university-updates.html');
+        loadComponent('ssc-gd-updates', 'ssc-gd-updates.html');
+        loadComponent('ssc-cgl-updates', 'ssc-cgl-updates.html');
+        loadComponent('footer-section', 'footer.html');
+    </script>
+</body>
+</html>
