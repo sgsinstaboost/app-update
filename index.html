@@ -3,68 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGS Online Service & Mock Test</title>
+    <title>SGS Educational Portal</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Inter', sans-serif; }</style>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e40af', // Blue 800
+                        secondary: '#4338ca', // Indigo 700
+                        accent: '#f59e0b', // Amber 500
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <!-- Simple Header -->
-    <header class="bg-indigo-600 text-white shadow-lg p-4">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <h1 class="text-2xl font-bold">SGS Online Service</h1>
-            <nav class="hidden md:flex space-x-6">
-                <a href="index.html" class="hover:text-indigo-200">Home</a>
-                <a href="#notice-board" class="hover:text-indigo-200">Notice Board</a>
-                <a href="privacy.html" class="hover:text-indigo-200">Privacy Policy</a>
-            </nav>
+    <!-- Navbar (TERA EXACT CODE) -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                        <i class="fa-solid fa-graduation-cap text-accent text-3xl"></i>
+                        <span>SGS<span class="text-gray-800">Portal</span></span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="#notices" class="text-gray-600 hover:text-primary font-medium transition-colors">Notice Board</a>
+                    <a href="#tests" class="text-gray-600 hover:text-primary font-medium transition-colors">Mock Tests</a>
+                    <a href="#app" class="text-gray-600 hover:text-primary font-medium transition-colors">Download App</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 pb-4">
+            <a href="#home" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Home</a>
+            <a href="#notices" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Notice Board</a>
+            <a href="#tests" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Mock Tests</a>
+            <a href="#app" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary">Download App</a>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-10 space-y-12">
+    <!-- Hero Section (TERA EXACT CODE) -->
+    <section id="home" class="relative bg-gradient-to-br from-primary via-secondary to-indigo-900 text-white overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
         
-        <!-- Yahan app-section.html load hoga -->
-        <div id="app-section"></div>
-
-        <!-- Notice Board Section -->
-        <section id="notice-board" class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Latest Notice Board</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Yahan teeno notices alag alag load honge -->
-                <div id="university-updates"></div>
-                <div id="ssc-gd-updates"></div>
-                <div id="ssc-cgl-updates"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm text-sm font-semibold tracking-wider mb-4 border border-white/30">
+                    Welcome to Your Success Journey
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+                    Empowering Your Education & Career
+                </h1>
+                <p class="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed">
+                    Get latest admission updates, fill forms online, take free mock tests, and download our premium app to boost your exam preparation.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#app" class="px-8 py-4 bg-accent text-white font-bold rounded-lg shadow-lg hover:bg-yellow-600 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-google-play"></i> Download App
+                    </a>
+                    <a href="#notices" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/50 text-white font-bold rounded-lg backdrop-blur-sm transition-all flex items-center justify-center gap-2">
+                        View Latest Notices <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-        </section>
+        </div>
+        
+        <!-- Bottom Curve Divider -->
+        <div class="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-[0]">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[60px] md:h-[100px]">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-gray-50"></path>
+            </svg>
+        </div>
+    </section>
 
-    </main>
+    <!-- Notice Board Section -->
+    <section id="notices" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Notice Board & Updates</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Stay updated with the latest college admissions, exam forms, government job notifications, and important announcements.</p>
+                <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+            </div>
 
-    <!-- Yahan footer.html load hoga -->
-    <div id="footer-section"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Yahan notices load honge -->
+                <div id="notice-university"></div>
+                <div id="notice-ssc-cgl"></div>
+                <div id="notice-ssc-gd"></div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-8 rounded-lg transition-colors border border-gray-300">
+                    View All Notices
+                </button>
+            </div>
+        </div>
+    </section>
 
-    <!-- MAGIC SCRIPT: Jo sabhi files ko link karega -->
+    <!-- Containers jahan baaki files load hongi -->
+    <div id="app-container"></div>
+    <div id="tests-container"></div>
+    <div id="footer-container"></div>
+
+    <!-- Scripts (TERA CODE + FILE LOAD SCRIPT) -->
     <script>
-        function loadComponent(elementId, fileName) {
-            fetch(fileName)
-                .then(response => {
-                    if (!response.ok) throw new Error("File missing: " + fileName);
-                    return response.text();
-                })
+        // Tera original script
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // NAYA SCRIPT: Files fetch karne ke liye (Ye design change nahi karega)
+        function loadHTML(id, filename) {
+            fetch(filename)
+                .then(response => response.text())
                 .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
+                    document.getElementById(id).innerHTML = data;
                 })
-                .catch(err => console.error(err));
+                .catch(error => console.error('Error loading ' + filename));
         }
 
-        // Saare alag-alag HTML files ko call kar rahe hain
-        loadComponent('app-section', 'app-section.html');
-        loadComponent('university-updates', 'university-updates.html');
-        loadComponent('ssc-gd-updates', 'ssc-gd-updates.html');
-        loadComponent('ssc-cgl-updates', 'ssc-cgl-updates.html');
-        loadComponent('footer-section', 'footer.html');
+        // Files ko bula rahe hain
+        loadHTML('notice-university', 'notice-university.html');
+        loadHTML('notice-ssc-cgl', 'notice-ssc-cgl.html');
+        loadHTML('notice-ssc-gd', 'notice-ssc-gd.html');
+        loadHTML('app-container', 'app-section.html');
+        loadHTML('tests-container', 'tests-section.html');
+        loadHTML('footer-container', 'footer.html');
     </script>
 </body>
 </html>
